@@ -8,8 +8,7 @@ export default function App() {
 
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
-  const [perPage, setPerPage] = useState(10)
-
+  const [perPage, setPerPage] = useState(0)
 
 
   const columns = [
@@ -19,7 +18,7 @@ export default function App() {
     },
     {
       name: "First Name",
-      selector: (row) => row.FirstName
+      selector: (row) => row.firstName
     },{
       name: "Last Name",
       selector: (row) => row.LastName
