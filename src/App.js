@@ -1,11 +1,16 @@
 import DataTable from "react-data-table-component";
 import {useState, useEffect} from "react";
+import Post from "./components/Post";
+import axios from "axios";
 
-function App() {
+
+
+export default function App() {
 
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
   const [perPage, setPerPage] = useState(10)
+
 
   const columns = [
     {
@@ -25,35 +30,49 @@ function App() {
     }
   ]
 
+  
 
 useEffect(() => {
-  fetchTableData()
+  getMethod()
 }, [])
+//get with fetch
+// async function fetchTableData() {
+//   setLoading(true)
+//   const URL = "https://63bd59afce8cd0789c9527f4.mockapi.io/Employment"
+//   const res = await fetch(URL)
 
-async function fetchTableData() {
-  setLoading(true)
-  const URL = "https://63bd59afce8cd0789c9527f4.mockapi.io/Employment"
-  const response = await fetch(URL)
+//   const users = await res.json()
+//   setData(users)
+// }
 
-  const users = await response.json()
-  setData(users)
-  setLoading(false)
+async function getMethod() {
+    axios.get("https://63bd59afce8cd0789c9527f4.mockapi.io/Employment")
+    .then(res => {
+    setData(res.data)
+    setLoading(false)
+  })
+    .catch(err => {
+    console.log(err)
+  })
 }
 
 
-  return (
-    <div className="App">
-
+return (
+    <div className="App"> 
       <DataTable 
-        title="Employment (testing)"
+        title="Employment Table V1"
         columns={columns}
         data={data}
         progressPending={loading}
         pagination
       />
+      <h3>Add an Employee </h3>
+
+      <Post />
+      
       
     </div>
   );
 }
 
-export default App;
+
