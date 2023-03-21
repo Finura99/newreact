@@ -1,21 +1,20 @@
 import React from 'react'
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import Create from './components/create/create'
+import Read from './components/read/read';
+import './App.css';
 
-const FormExampleForm = () => (
-<Form>
-    <Form.Field>
-        <label>First Name</label>
-        <input placeholder='First Name' />
-    </Form.Field>
-    <Form.Field>
-        <label>Last Name</label>
-        <input placeholder='Last Name' />
-    </Form.Field>
-    <Form.Field>
-        <Checkbox label='I agree to the Terms and Conditions' />
-    </Form.Field>
-        <Button type='submit'>Submit</Button>
-    </Form>
-)
-
-export default FormExampleForm
+export default function App() {
+    return(
+        <div className='main'>
+            <div>
+                <h3>React Crud Operation</h3>
+            </div>
+            <div>
+                <Create />
+            </div>
+            <div style={{marginTop: 20}}>
+                <Read />
+            </div>
+        </div>
+    );
+}
