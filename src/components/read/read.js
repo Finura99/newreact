@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Button } from 'semantic-ui-react';
+import { Table, Button} from 'semantic-ui-react';
 import axios from 'axios';
 
 
@@ -37,6 +37,14 @@ export default function Read() {
                                 <Table.Cell>{data.id}</Table.Cell>
                                 <Table.Cell>{data.firstName}</Table.Cell>
                                 <Table.Cell>{data.lastName}</Table.Cell>
+                                <Table.Cell>
+
+                                    <Button color='blue'>Update</Button>
+                                </Table.Cell>
+                                <Table.Cell>
+
+                                    <Button color="red">Delete</Button>
+                                </Table.Cell>
                             </Table.Row>
                         )
                     })}

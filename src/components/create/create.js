@@ -25,7 +25,8 @@ export default function Create() {
                 <input 
                     name="fname"
                     onChange={(e) => setFirstName(e.target.value)}
-                    placeholder='First Name' 
+                    placeholder='First Name'
+                    required = "required" 
                     />
             </Form.Field>
             <Form.Field>
@@ -34,6 +35,7 @@ export default function Create() {
                     name="lname"
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder='Last Name' 
+                    required="required"
                     />
             </Form.Field>
             <Button
