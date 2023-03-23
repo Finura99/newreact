@@ -8,6 +8,8 @@ export default function Create() {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [salary, setSalary] = useState('');
     
     
     let navigate = useNavigate();// use navigate to redirect other web page after an action.
@@ -17,7 +19,9 @@ export default function Create() {
     const sendDataToAPI = () => {
         axios.post("https://63c44a3e8067b6bef6d6fd16.mockapi.io/Employ", {
             firstName,
-            lastName
+            lastName,
+            email,
+            salary
         })
         .then(() => {
             navigate('/read')
@@ -44,11 +48,30 @@ export default function Create() {
                     required="required"
                     />
             </Form.Field>
+            <Form.Field>
+                <label>Email</label>
+                <input 
+                    name="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="E-mail address"
+                    required="required"
+                    />
+            </Form.Field>
+            <Form.Field>
+                <label>Salary</label>
+                <input 
+                    name="salary"
+                    onChange={(e) => setSalary(e.target.value)}
+                    placeholder="Salary"
+                    required="required" 
+                    />
+            </Form.Field>
             <Button
                 type='submit'
                 onClick={sendDataToAPI}
-                > Submit
+                >Submit
             </Button>
+            <Button>Cancel</Button>
         </Form>
     </div>
     )

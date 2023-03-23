@@ -9,7 +9,7 @@ function App() {
     return(
         <BrowserRouter>
             <div className='main'>
-                <div>
+                <div style={{marginBottom:20}}>
                     <h3>
                         Employment Table V3
                     </h3>
