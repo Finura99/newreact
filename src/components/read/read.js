@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button} from 'semantic-ui-react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 
 export default function Read() {
@@ -17,6 +19,26 @@ export default function Read() {
             })
             
     }
+
+    const setID = (id) => {
+        console.log(id)
+        localStorage.setItem("ID", id)
+    }
+
+    const getDataDelete = () => {
+        axios.get('https://63c44a3e8067b6bef6d6fd16.mockapi.io/Employ')
+            .then((getDataDelete) => {
+                setApiData(getDataDelete.data);
+            })
+    }
+
+    const onDelete = (id) => {
+        axios.delete(`https://63c44a3e8067b6bef6d6fd16.mockapi.io/Employ/${id}`)
+        .then (()=> {
+            getDataDelete();
+        })
+    }
+
     return (
         <div>
             <Table celled>
@@ -38,12 +60,18 @@ export default function Read() {
                                 <Table.Cell>{data.firstName}</Table.Cell>
                                 <Table.Cell>{data.lastName}</Table.Cell>
                                 <Table.Cell>
-
-                                    <Button color='blue'>Update</Button>
+                                    <Link to = '/update'>
+                                        <Button color='blue' 
+                                                onClick={() => setID(data.id)}>
+                                            Update
+                                        </Button>
+                                    </Link>
                                 </Table.Cell>
                                 <Table.Cell>
-
-                                    <Button color="red">Delete</Button>
+                                        <Button color="red" 
+                                                onClick={() => onDelete(data.id)}>
+                                            Delete
+                                        </Button>
                                 </Table.Cell>
                             </Table.Row>
                         )

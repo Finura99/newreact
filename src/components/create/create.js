@@ -1,20 +1,26 @@
 import React, {useState} from "react";
 import { Form, Button} from "semantic-ui-react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Create() {
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-
-
-    console.log(firstName)
-    console.log(lastName)
-
+    
+    
+    let navigate = useNavigate();// use navigate to redirect other web page after an action.
+    // console.log(firstName)
+    // console.log(lastName)
+    
     const sendDataToAPI = () => {
         axios.post("https://63c44a3e8067b6bef6d6fd16.mockapi.io/Employ", {
             firstName,
             lastName
+        })
+        .then(() => {
+            navigate('/read')
         })
     }
     return(
