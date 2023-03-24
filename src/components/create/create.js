@@ -60,19 +60,21 @@ export default function Create() {
             <Form.Field>
                 <label>Salary</label>
                 <input 
+                    type="number"
                     name="salary"
                     onChange={(e) => setSalary(e.target.value)}
                     placeholder="Salary"
                     required="required" 
                     />
             </Form.Field>
-            <Button
+            <Button color="black"
                 type='submit'
                 onClick={sendDataToAPI}
                 >Submit
             </Button>
-            <Button>Cancel</Button>
+            <Button color="red">Cancel</Button>
         </Form>
     </div>
     )
 }
+
