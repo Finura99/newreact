@@ -41,7 +41,6 @@ function App() {
     },
     
   ]
-<<<<<<< Updated upstream
 
 
 useEffect(() => {
@@ -62,69 +61,6 @@ async function fetchTableData() {
   return (
     <div className="App">
 
-=======
-  
-  
-
-  //get data
-    
-    function getMethod() {
-      axios.get("https://63bd59afce8cd0789c9527f4.mockapi.io/Employment")
-      .then((res) => { 
-        setData(res.data)
-        console.log(res.data)
-              //setLoading(false)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    }
-
-    const sendDataToAPI = () => {
-
-    }
-
-      // function handleSubmit(event) {
-      //   event.preventDefault()
-      //   axios.post("https://63c44a3e8067b6bef6d6fd16.mockapi.io/CRUD",{post})
-      //     .then((res) => {
-      //       console.log(res)
-      //       setPost([res.data,...post])
-      //       setData([])
-      //     })
-      //     .catch(err => {
-      //     console.log(err)
-      //     })
-      //   }
-  
-      function handleChange(event) { 
-        
-  setPost(prevPost => {
-    return {
-      ...prevPost,
-      [event.target.name]: event.target.value
-    }
-  })
-
-
-       // setPost(event.target.name)
-        // setPost({
-        //         ...post,
-        //         [event.target.name]: event.target.//value
-        //       });
-        
-        
-        
-    }
-
-    console.log(post)
-    //const deleteData
-            
-    
-    
-return (
-    <div className="App"> 
->>>>>>> Stashed changes
       <DataTable 
         title="Employment (testing)"
         columns={columns}
